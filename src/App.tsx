@@ -9,14 +9,14 @@ const App = () => {
     const {theme, toggleTheme} = useTheme();
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames("app", {}, [theme])}>
             <button onClick={toggleTheme}>TOGGLE</button>
             <Link to={'/'}>Главная</Link>
             <Link to={'/about'}>О сайте</Link>
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
-                    <Route path={'/about'} element={<AboutPageAsync />} />
-                    <Route path={'/'} element={<MainPageAsync />} />
+                    <Route path={'/about'} element={<AboutPageAsync/>}/>
+                    <Route path={'/'} element={<MainPageAsync/>}/>
                 </Routes>
             </Suspense>
         </div>
